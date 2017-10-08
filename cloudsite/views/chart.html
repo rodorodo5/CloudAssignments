@@ -1,0 +1,41 @@
+<div ng-controller="HomeCont">
+
+<div style="background-color: white; height: 700px;">
+  <div class="parallax2">
+    <div>
+      <button style="float: left;" class="btn btn-primary create-crud" ng-click="goPanel()">Close</button>
+      <p class="headerPrev">Progress Chart</p>
+    </div>
+  </div>
+
+
+<div id="myDiv" class="myDiv"></div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<script type="text/javascript">
+   var trace1 = {
+        x :[1,2,3,4,5,5,7,8,9,10,11,12],
+        y : [ 90,90,100,0,0,0,0,0,0,0,0,0],
+        type: 'scatter'
+        }
+
+      var dat =  [trace1];
+      Plotly.newPlot('myDiv',dat);
+</script>
+
+
+
+
+
+

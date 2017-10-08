@@ -1,0 +1,96 @@
+<div class="parallax">
+  <button  class="btn btn-success autot2" ng-click="changeView('chart')" >Progress Chart</button>
+  <a href="https://github.com/rodorodo5/CloudAssignments" class="btn btn-danger autot3">GitHub</a>
+  <div id="particles-js">
+
+    <div class="textCenter">
+      <h1 class="autot miName">Rodolfo's Site</h1>
+    </div>
+  </div>
+</div>
+<div ng-controller="HomeCont">
+  <div class="marg">
+    <div class="row">
+      <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+          <h1 style="color:white;"><strong>Assigments</h1>
+        </div>
+        <div class="pull-right" style="padding-top:30px">
+          <div class="box-tools" style="display:inline-table">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <table border="0" class="table table-bordered pagin-table" style="border-style: none !important;">
+      <thead>
+        <tr class="tcolor">
+          <th class="colorido">#</th>
+          <th class="colorido">Status</th>
+          <th class="colorido">Date</th>
+          <th class="colorido">Tarea</th>
+          <th class="colorido">Topic</th>
+          <th class="colorido">Preview</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="yes">Online</td>
+          <td>2017-08-20 09:00:45</td>
+          <td>Assignment 1</td>
+          <td>Arquitectura de microservicios, Levantar ambiente, Deployments Preview</td>
+          <td>
+            <button ng-click="changeView('a1')"  class="btn btn-success">Preview</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="yes">Online</td>
+          <td>2017-08-26 18:48:45</td>
+          <td>Assignment 2</td>
+          <td>NodeJs, Martin Fowler Microservices, Seth Godin’s Manifesto</td>
+          <td>
+            <button ng-click="changeView('a2')" class="btn btn-success">Preview</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td class="yes">Online</td>
+          <td>2017-09-09 19:32:25</td>
+          <td>Assignment 3</td>
+          <td>Google Analytics , Mautrity Model, Importance of Cloud Computing</td>
+          <td>
+            <button ng-click="changeView('a3')"  class="btn btn-success">Preview</button>
+          </td>
+        </tr>
+
+        <tr style="background-color: #840c0c;color: white;">
+          <td>4</td>
+          <td class="yes">Online</td>
+          <td>2017-09-17</td>
+          <td>Assignment 4</td>
+          <td>Marvel Dropdowns API</td>
+          <td>
+            <button ng-click="changeView('marvel')"  class="btn btn-success">Preview</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   
+
+
+
+   <!--  <div class="myDiv" id="myDiv"></div> -->
+  </div>
+  <!-- Edit Modal -->
+  <!-- modal para el preview
+ -->
+  
+</div>
+</div>
+
+
+
+<script src="js/parts.js"></script>

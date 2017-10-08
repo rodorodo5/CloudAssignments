@@ -1,0 +1,740 @@
+
+body{
+      background-color: #2b3456 !important;
+}
+.colorido{
+  color: black;
+  font-weight: 600;
+}
+
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+
+
+.selector{
+  float: left;
+  width: 50%;
+  color: orange;
+  font-size: 17px;
+}
+.autot { 
+  position: absolute;
+  font: bold 300% Consolas, Monaco, monospace;
+  border-right: .1em solid white;
+  width: 16.5em; 
+  width: 21ch;
+  margin: 2em 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-animation: typing 10s steps(21, end),
+             blink-caret .5s step-end infinite alternate;
+}
+.colordesel{
+      background-color: orange !important;
+}
+
+.autot2 {
+    margin-top: 12%;
+    left: -1%;
+    position: absolute;
+    font: bold 300% Consolas, Monaco, monospace;
+    border-right: .1em solid white;
+    width: 16.5em;
+    width: 21ch;
+  
+    white-space: nowrap;
+    overflow: hidden;
+   
+}
+.autot3 {
+    background-color: #4f60d9 !important;
+    border-color: #4f60d9 !important;
+    margin-top: 15%;
+    left: -1%;
+    position: absolute;
+    font: bold 300% Consolas, Monaco, monospace;
+    border-right: .1em solid white;
+    width: 16.5em;
+    width: 21ch;
+  
+    white-space: nowrap;
+    overflow: hidden;
+   
+}
+
+
+.count-particles{
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13E8E9;
+  font-size: .8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.js-count-particles{
+  font-size: 1.1em;
+}
+
+.count-particles{
+  border-radius: 0 0 3px 3px;
+}
+.textCenter{
+  text-align: center;
+  vertical-align: middle;
+}
+.miName{
+      left: 11%;
+    top: -8%;
+  position: absolute;
+  font-size: 70px;
+  color: white;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js{
+  width: 100%;
+  height: 300px;
+  background-color: #b61924;
+  background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.parallax {
+  margin-top: -50px;
+    background-color: orange;
+    min-height: 300px; 
+    
+}
+
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+        z-index: 0;
+}
+
+.modal-dialog, .modal-content{
+z-index:1051 !important;
+}
+
+.logoutbutton{
+  color:white !important;
+  cursor: pointer;
+}
+.titlebg{
+ 
+  color:black;
+  padding-bottom: 10px;
+}
+.blue {
+    color:#0080ff ; 
+}
+
+.red {
+    color: red;
+}
+.no{
+  text-align:center;
+  background-color: #d9534f;
+  color:white;
+}
+.yes{
+  text-align:center;
+  background-color: #5cb85c;
+  color:white;
+}
+.SubMargin{
+  margin-right: 130px;
+  margin-left: 130px;
+}
+.headerAdmin{
+  padding-top: 65px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+.headerPrev{
+  padding-top: 107px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+
+.logoutbutton:hover{
+  color:red !important;
+  cursor: pointer;
+}
+.name{
+  color:white !important;
+}
+.center { 
+  margin: auto; 
+  max-width: 500px;
+  padding-top:100px;
+}
+.center2{
+  margin: auto; 
+  max-width: 350px;
+  max-height: 100px;
+}
+.tcolor{
+      background-color: #95c5ff;
+}
+.pagin-table{
+   border-style: none !important;
+          border-color: transparent !important;
+}
+.table{
+          background-color: rgb(255, 153, 0) !important;
+          border-style: none !important;
+          border-color: transparent !important;
+}
+
+tr{
+  border-style: none !important;
+          border-color: transparent !important;
+}
+.table-bordered{
+      border: 1px solid #000 !important;
+      border-style: none !important;
+          border-color: transparent !important;
+}
+.tbody{
+  border-style: none !important;
+          border-color: transparent !important;
+      display: table-row-group;
+    vertical-align: middle;
+    border-color: black !important;
+    border-top-color: black !important;
+    border-right-color: black !important;
+    border-bottom-color: black !important;
+    border-left-color: black !important;
+}
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: 1px solid #fff !important;
+}
+/*.modal{
+
+  padding-top: 290px;
+  max-width: 300px;
+  background-color: transparent;
+  border-color: transparent;
+}
+.modal-content{
+background-color: transparent !important; 
+border-color: transparent;
+}
+.modal-body{
+  background-color: transparent;
+  position: absolute !important;
+}
+.modal-header{
+  border-color: transparent;
+  background-color: transparent;
+}*/
+
+
+.close{
+  margin-top: -20px;
+}
+.marg{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.modal{
+  
+      overflow-y: hidden !important; 
+}
+
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) .7s;
+
+  display:block;
+  width:100%;
+  border-left:1px solid black;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:10px;
+}
+
+.view-animate.ng-enter {
+  left:100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+  left:0;
+}
+.view-animate.ng-leave.ng-leave-active {
+  left:-100%;
+}
+.puntitos{
+  color:blue;
+}
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: white;
+    overflow-y: scroll;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*from here*/
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+body{
+      background-color: #2b3456 !important;
+}
+.colorido{
+  color: black;
+  font-weight: 600;
+}
+
+@-webkit-keyframes typing { from { width: 0; } }
+@-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
+
+.autot { 
+  position: absolute;
+  font: bold 300% Consolas, Monaco, monospace;
+  border-right: .1em solid white;
+  width: 16.5em; 
+  width: 21ch;
+  margin: 2em 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-animation: typing 10s steps(21, end),
+             blink-caret .5s step-end infinite alternate;
+}
+
+
+
+.count-particles{
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13E8E9;
+  font-size: .8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.js-count-particles{
+  font-size: 1.1em;
+}
+
+.count-particles{
+  border-radius: 0 0 3px 3px;
+}
+.textCenter{
+  text-align: center;
+  vertical-align: middle;
+}
+.miName{
+      left: 11%;
+    top: -8%;
+  position: absolute;
+  font-size: 70px;
+  color: white;
+}
+
+/* ---- particles.js container ---- */
+
+#particles-js{
+  width: 100%;
+  height: 300px;
+  background-color: #b61924;
+  background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.parallax {
+  margin-top: -50px;
+    background-color: orange;
+    min-height: 300px; 
+    
+}
+
+
+
+.modal-dialog, .modal-content{
+z-index:1051 !important;
+}
+
+.logoutbutton{
+  color:white !important;
+  cursor: pointer;
+}
+.titlebg{
+  
+  color:black;
+  padding-bottom: 10px;
+}
+.blue {
+    color:#0080ff ; 
+}
+
+.red {
+    color: red;
+}
+.no{
+  text-align:center;
+  background-color: #d9534f;
+  color:white;
+}
+.yes{
+  text-align:center;
+  background-color: #5cb85c;
+  color:white;
+}
+.SubMargin{
+  margin-right: 130px;
+  margin-left: 130px;
+}
+.headerAdmin{
+  padding-top: 65px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+.headerPrev{
+  padding-top: 107px;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+}
+
+.logoutbutton:hover{
+  color:red !important;
+  cursor: pointer;
+}
+.name{
+  color:white !important;
+}
+.center { 
+  margin: auto; 
+  max-width: 500px;
+  padding-top:100px;
+}
+.center2{
+  margin: auto; 
+  max-width: 350px;
+  max-height: 100px;
+}
+.tcolor{
+      background-color: #95c5ff;
+}
+
+.table{
+          background-color: rgb(255, 153, 0) !important;
+}
+.table-bordered{
+      border: 1px solid rgba(255, 87, 34, 0) !important
+}
+.tbody{
+      display: table-row-group;
+    vertical-align: middle;
+    border-color: black !important;
+    border-top-color: black !important;
+    border-right-color: black !important;
+    border-bottom-color: black !important;
+    border-left-color: black !important;
+}
+.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: 1px solid black !important;
+    
+    
+}
+/*.modal{
+
+  padding-top: 290px;
+  max-width: 300px;
+  background-color: transparent;
+  border-color: transparent;
+}
+.modal-content{
+background-color: transparent !important; 
+border-color: transparent;
+}
+.modal-body{
+  background-color: transparent;
+  position: absolute !important;
+}
+.modal-header{
+  border-color: transparent;
+  background-color: transparent;
+}*/
+.parallax {
+    background-image: url("../images/bg.jpg");
+    min-height: 150px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
+.parallax2 {
+    background-image: url("../images/bg.jpg");
+    min-height: 250px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+}
+.close{
+  margin-top: -20px;
+}
+.marg{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.modal{
+  
+      overflow-y: hidden !important; 
+}
+
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) .7s;
+
+  display:block;
+  width:100%;
+  border-left:1px solid black;
+
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:10px;
+}
+
+.view-animate.ng-enter {
+  left:100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+  left:0;
+}
+.view-animate.ng-leave.ng-leave-active {
+  left:-100%;
+}
+.puntitos{
+  color':blue;
+}
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: white;
+    overflow-y: scroll;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+
+

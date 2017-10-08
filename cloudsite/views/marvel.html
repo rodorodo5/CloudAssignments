@@ -1,0 +1,77 @@
+<div ng-controller="HomeCont">
+
+<div style="background-color: white; height: auto; padding-bottom: 400px;">
+  <div class="parallax2">
+    <div>
+      <button style="float: left;" class="btn btn-primary create-crud" ng-click="goPanel()">Close</button>
+      <p class="headerPrev">Assignment 4</p>
+    </div>
+  </div>
+
+
+
+
+
+
+<div class="container">
+  <h2>Get list of Marvel Characters</h2>
+  <div class="panel panel-default">
+    <div class="panel-heading" style="background-color: lightblue;">Select Characters</div>
+    <div class="panel-body">
+    	
+	   <div style="float:left; width: 50%">
+	   		<h4>First selection</h3>
+			<select class="form-control" style="background-color: orange;color: black;font-weight: 700;font-size: 22px;" id="chracterList1" selected="1" >
+			</select>
+	   </div>
+	   <div style="float:left; width: 50%">
+	   		<h4>Second selection</h3>
+			<select class="form-control" style="background-color: orange;color: black;font-weight: 700;font-size: 22px;"  id="chracterList2"  >
+			</select>
+	   </div>
+	   <div style="clear: both;"></div>
+
+     <div style="text-align: center;"> 
+       <div style="display: inline-block;">
+         <button class="btn btn-default" style="margin-top: 30px;" id="getiComics">Get Comics</button>
+       </div>
+     </div>
+
+     
+  </div>
+
+  
+<div class="panel panel-default">
+    <div class="panel-heading" style="background-color: lightblue;"><h2>Comics and series that match both characters</h2></div>
+    <div class="panel-body">
+      <div id="res">
+          <ul id="res1" class="selector"></ul>
+
+          <ul id="res2" class="selector"></ul>
+      </div>
+  </div>
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading" style="background-color: lightblue;">Authorizer (Try)</div>
+    <div class="panel-body">
+      Es mi intento
+      <a href=""></a>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+

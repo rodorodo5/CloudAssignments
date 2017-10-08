@@ -1,0 +1,203 @@
+<div ng-controller="HomeCont">
+
+<div style="background-color: white;">
+  <div class="parallax2">
+    <div>
+      <button style="float: left;" class="btn btn-primary create-crud" ng-click="goPanel()">Close</button>
+      <p class="headerPrev">Assignment 2</p>
+    </div>
+  </div>
+  <div class="SubMargin" role="document">
+    <input ng-model="form.id" type="hidden" placeholder="Name" name="name" class="form-control" />
+    <div class="">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      </button>
+    </div>
+    <div>
+      <div class="container">
+        <div style="text-align: justify;">
+          <div>
+            <strong> <h1 >1. Explain what CloudFormation is and write a yaml file to create a bucket using CloudFormation. </h1></strong>
+            <p>CloudFormation es un servicio de Amazon Web Services que ayuda a los developers a tener que dedicarle menos tiempo a manejar los recursos para enfocarse más en la aplicación. Es decir ofrece un servicio para crear tus propios templates para utilizar los recursos que requieras. CloudFormation configura todos los recursos necesarios automáticamente para el desarrollador, no se necesita crear manualmente cada uno de los recursos ni preocuparte que recurso de otro para su configuración. </p>
+            <pre>
+              <code>
+            Type: "AWS::S3::Bucket"
+            Properties: 
+              AccessControl: PublicRead 
+              BucketName: rodolfor
+              WebsiteConfiguration:
+                ErrorDocument: error.html
+                IndexDocument: index.html
+              </code>
+            </pre>
+
+          </div> <!-- first quest -->
+
+          <div>
+          <strong> <h1 > 2. Create a Hello World in NodeJs and create a tutorial about it.</h1></strong>
+              <div>
+                <p>Creamos un archivo tipo.js  en el cual incluiremos nuestro Script de Node JS</p>
+                <p>En este ejemplo de hello world para NodeJs vamos a utilizar el modulo HTTP que ya incluye NodeJS para trabjar con el HTTP Protocol</p>
+                <pre><code>var http = require('http');</code></pre>
+              </div> <!-- one -->
+
+              <div>
+                <p>http.createServer() este metodo crea un HTTP server Object.</p>
+                <p>El http object envia una Respuesta (response) anonima </p>
+                <pre><code>var server = http.createServer(function(request,response){response.end("<p> Hello Rodo </p>");
+                });</code></pre>
+                <p>El metodo.end() Envia una señal al server que todos los Response Headers han sido enviados.</p>
+                <p>Se le indica al server que puerto escuchar para mandar la respuesta.</p>
+                <pre><code>console.log('NodeJs esta escuchando el puerto 3000');</code></pre>
+                <p>Para ejecturarlo en la Terminal tenemos que ir a la ruta donde esta el script y poner <br>Node + FileName  
+                <br>Ejemplo en este caso = node server.js
+                </p>
+              </div> <!-- one -->
+          </div> <!-- second quest-->
+
+
+
+
+            <div>
+          <strong> <h1 > 3. Install the aws sdk for nodejs and create a tutorial about it.</h1></strong>
+              <div>
+                <p>Primero tenemos que asegurarnos de instalar el sdk de aws con npm el cual es <br>npm install aws-sdk</p>
+                <p>Como test example utilice el ejemplo de AWS en el cual creara un bucket.<br>Solicita el modulo aws-sdk que deberia de estar previamente instalado</p>
+                <pre><code>var AWS = require('aws-sdk');</code></pre>
+                <p>Llama la clase AWS.S3 la cual Constructs a service interface object <<<</p>
+                <pre><code>var s3 = new AWS.S3();<br>
+
+                <br>var myBucket = 'rodolfor2';
+
+                <br>var myKey = 'test';</code></pre>
+                <p>Declaramos el nombre de nuestro bucket</p>
+                <p>Llama al metodo create bucket y se le encia el nombre de parametro con su Key</p>
+              </div> <!-- one -->
+
+              <div>
+                <pre><code>
+                   s3.createBucket({Bucket: myBucket}, function(err, data) {
+
+                    if (err) {
+
+                       console.log(err);
+
+                       } else {
+
+                         params = {Bucket: myBucket, Key: myKey, Body: 'Hello!'};
+
+                         s3.putObject(params, function(err, data) {
+                          //Agrega el objecto al bucket
+
+                             if (err) {
+
+                                 console.log(err);
+                                 // En caso de haber errores lo muestra.
+
+                             } else {
+
+                                 console.log("Funciono la instalación del SDK de AWS para NodeJS");
+
+                             }
+
+                          });
+
+                       }
+
+
+                    });
+                </code></pre>
+              </div> <!-- one -->
+          </div> <!-- third quest -->
+
+            <div>
+          <strong> <h1>Create a code in NodeJs that will tell you the version/date of your website in S3. </h1></strong>
+              <div>
+               
+                <pre><code>
+                  var AWS = require('aws-sdk');
+                  var s3 = new AWS.S3();
+                  http.createServer(function(request,response){
+                    var params ={
+                    bucket:'rodolfor',
+                    key: 'index.html'
+                  }
+                  s3.getObject(params,function(err,data){
+                      if(err){
+                      console.log(err);
+
+                      }
+
+                      else{
+                        console.log(data);
+                      }
+                   })
+                  )}.liseten(9000);
+
+                  
+                </code></pre>
+          </div> <!-- second quest-->
+
+
+
+            <div>
+          <strong> <h1 >5. Read and explain the post about Microservices Trade-Offs by Martin Fowler.</h1></strong>
+                <p>
+                   En el artículo anterior Martin Fowler daba una introducción a lo que son lo Microservices en comparación a la arquitectura monolítica. En este caso se enfoca a hablar un poco mas afondo sobre los pros y contras de la arquitectura de microservicios.<br>
+
+
+                     <strong>Strong Module Boundaries:</strong> En esta sección Fowler habla sobre el beneficio del que introducía en la lectura anterior, en esencia es indiscutible que un sistema dividido en diferentes módulos de software independientes y completamente flexibles es algo que añade bastante de qué hablar sobre esta arquitectura. De esta forma si cualquier funcionalidad del sistema necesita ser modificada o rediseñada, no basta con conocer acerca de ese módulo y conocer la base de comunicación entre el resto de módulos para completar la tarea. Algo que me pareció importante que mencionó el autor es que, es necesario saber en qué caso utilizar esta arquitectura y que requiera la complejidad necesaria para utilizar esta arquitectura.<br><br>
+                    <strong>Distribution: </strong>En esta sección menciona que apesar de la ventaja de tener un sistema distribuido te facilita la flexibilidad de tu sistema, puede tener varios problemas de complejidad y performance, sobre todo en las ‘Remote Calls’, es decir la comunicación entre todos los servicios, no es algo fácil de adaptar y requiere un conocimiento muy afondo acerca cada uno de ellos. Menciona también de la programación asíncrona y las complejidades que pueden interferir a la hora de comunicación entre las llamadas asíncronas en paralelo.<br><br>
+
+                    <strong>Eventual Consistency: </strong>En este caso repite un poco acerca del mismo problema, en el cual sabemos por hecho que en una Arquitectura modular que se basa en distintos servicios que se manejan individual e independientes se necesita mantener una consistencia de información bastante elevada, lo cual tampoco es nada sencillo. Esto es ya que los microservicios requieren múltiples recursos para realizar transacciones distribuidas, en lo cual es algo que necesita bastante enfoque esta Arquitectura ya que podría afectar la sincronización de distintas partes del software. <br><br>
+
+                      <strong>Independent Deployment:</strong>En esta sección menciona acerca de el deploy independiente y lo mucho que ayuda esta arquitectura, ya que en las anteriores arquitecturas no era tan sencillo como ahora, antes se tenía que tener cuidado riguroso en cada una de las secciones que podría involucrar modificar o deployar algo. Ahora, gracias a que cada módulo funciona independiente, basta con modificar lo que se requiere precisamente y deployar sin afectar ninguna otra de las secciones o servicios. Esto es algo bastante necesario ya que los sistemas de hoy en día sufren de cambios bastante radicales.<br><br>
+                    <strong>Operational Complexity:</strong> En esta sección menciona el problema que puede ser la generación de una cantidad alta de varios microservicios. Y la capacidad necesaria que se requiere para mantener cada uno de ellos. Esto es bastante evidente ya que es una continuous delivery, para esto menciona que es casi imposible manejar docenas de microservicios sin automatización y colaboración de diferentes desarrolladores. 
+                    Technology diversity: Algo que fowler menciona es la diversidad de las tecnologías y es una de las partes que más me llaman la atención de esta arquitectura, es la flexibilidad para manejar múltiples tecnologías diferentes lenguajes de programación, diferentes métodos de almacenamiento y de distribución de datos.<br><br>
+                </p>
+          </div> <!-- second quest-->
+
+
+
+
+
+
+          <div>
+          <strong> <h1 >6. Create a comparison table between AWS, Azure and Google Cloud. </h1></strong>
+              <div>
+                <img src="images/g1.png" style="width: 700px;">
+                <br>
+                <img src="images/g2.png" style="width: 700px;">
+              </div> <!-- one -->
+          </div> <!-- second quest-->
+
+
+          <div>
+          <strong> <h1 >7. Read at least 5 sections of Seth Godin’s Manifesto: “Stop Stealing Dreams” and tell me what you think about it. </h1></strong>
+              <div>
+                <p>
+                  
+                       <strong>7. Mass production desires to produce mass:</strong> En esta sección habla de cómo el sistema escolar ha sido regulado para crear personas uniformes, donde te limitan a la creatividad a el ser tú mismo, es algo en lo que concuerdo de manera significante, ya que es bastante lamentable esta realidad. Dentro de la idea de la escuela universal, donde todos tenemos que pasar por los mismos filtros para obtener la misma educación.. La forma más estúpida de hacer las cosas. Bien dicen que un pez no puede escalar un árbol, ni un elefante volar. Si bien es indispensable tener una cultura general pero no obligar a que seas igual y solo enfocar a los estudiantes a producir.  <br><br>
+
+                       <strong>6. Changing what we get because we’ve changed what we need:</strong> Si la función de la escuela es crear a trabajadores para generar economía de nuestro país, es necesario cambiar la escuela porque los trabajadores han cambiado también. En esta sección se menciona que la misión de las escuelas no es más que crear trabajadores obedientes, homogéneos y con satisfacción falsa de lo que hacen para consumir.  La misión verdadera es cambiar lo que ya conocemos en todos los aspectos, no solo mejorar en lo que ya hacemos, si no modificar desde la raíz la forma estandarizada de hacer las cosas. <br><br>
+
+                       <strong>11. To efficiently run a school, amplify fear and destroy passion:</strong> el miss conception  de la llamada “disciplina” o “coordinación”, concuerdo mucho con esta parte del manifiesto, la forma en la que se educa es basada en disciplina falsa, en donde es un muy obedecer algo que en realidad no se quiere hacer o tienes una mejor forma de hacerlo, no, así no funciona en las escuelas, obligatoriamente se tiene que seguir la misma línea que todos, esto como personas nos desanima a intentar hacer las cosas diferentes y para ser sincero es algo muy triste como se limita desde niños a los estudiantes y crecen con la mentalidad cerrada a seguir las reglas para “aprender”. <br><br>
+
+                       <strong>13. Which came first, the car or the gas station: </strong> La cultura cambia para adaptarse a la economía, pero no al revés. La economía necesitaba trabajadores en base a lo que se requería. Las fábricas no existen porque había escuelas, sino las escuelas sucedieron porque habia fabricas. Ya no se necesitan trabajadores, las escuelas se siguen enfocando en las necesidades industrializadas del pasado. Es necesario un cambio de mindset en donde la idea es el progreso, el desarrollo e innovación. <br><br>
+
+                       <strong>14. The wishing and dreaming problem:</strong>  Encontré algo muy cierto en este punto del Manifiesto, en donde menciona que un estudiante que ve o sueña las cosas de dista forma lo obligan a pensar que es lo incorrecto. Los soñadores en las escuelas parecen peligrosos, parece como si los mismos profesores estuvieran poseídos por las mismas reglas y normas que obligan a un alumno a no crecer como soñador a no creer en sus deseos. Yo creo que lo más importante es alimentar los sueños, o por lo menos enseñarte a controlarlos y darles vida.  <br><br>
+
+
+
+                </p>
+          </div> <!-- second quest-->
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

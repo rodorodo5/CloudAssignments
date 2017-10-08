@@ -1,0 +1,174 @@
+<div ng-controller="HomeCont">
+
+<div style="background-color: white;"> 
+  
+        
+        <div class="parallax2">
+          <div>
+           <button style="float: left;" class="btn btn-primary create-crud" ng-click="goPanel()">Close</button>
+            <p class="headerPrev">Assignment 1</p>
+          </div>
+        </div>
+        <div class="SubMargin" role="document">
+          <input ng-model="form.id" type="hidden" placeholder="Name" name="name" class="form-control" />
+          <div class="">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            </button>
+          </div>
+          <div>
+            <div class="container">
+              <h1 class="titlebg"> {{ value.created_at }}</h1>
+              <h4 class="titlebg" style="color:red;">{{form.smalldescription}}</h4>
+              <div style="text-align: justify;">
+                <p style="text-align:center"><span style="color:#3498db"><em><span style="font-size:16px"><strong>Microservices Architecture</strong></span></em></span></p>
+
+<p>&nbsp;</p>
+
+<p>Es una arquitectura que busca cambiar la forma com&uacute;n de desarrollar software monol&iacute;tico, es decir aquellos sistemas que tienen un relaci&oacute;n consigo mismos en donde para modificar o actualizar alguno de sus procesos se requerir&aacute; cambiar tambi&eacute;n otras secciones y redise&ntilde;ar incluso parte de su estructura.</p>
+
+<p>Por otra parte en la arquitectura de microservicios cada proceso se toma como independiente con su propia funcionalidad como un servicio, es decir que incluso cada uno de lo procesos dentro del software pueden ser distintos lenguajes de programaci&oacute;n, as&iacute; mismo distribuir los servicios entre servidores, replicando cada uno de estos a preferencia.</p>
+
+<p>No existe una definici&oacute;n completamente definida pero se puede describir por las caracter&iacute;sticas que se busca cumplir en esta arquitectura. Entre estas caracteristicas las mas importantes son:</p>
+
+<ul>
+  <li>
+  <p>Componentization : Esto mediante m&uacute;ltiples componentes que son unidades de software independientes, reemplazables y actualizables.</p>
+  </li>
+  <li>
+  <p>Services: Son componentes fuera de un proceso los cuales se comunican con un mecanismo como un webrequest o calls. Esto se utiliza en vez de solo librer&iacute;as. Ya que los servicios pueden correr independientemente.</p>
+  </li>
+  <li>
+  <p>Products not Projects: &nbsp;Esta arquitectura evita el modelo t&iacute;pico de vender un software y dejarlo olvidado. &ldquo;You build it , you run it&rdquo;</p>
+  </li>
+  <li>
+  <p>Esta arquitectura tambi&eacute;n cuenta con caracter&iacute;sticas para aprovechamiento de recursos, &nbsp;que la aplicaci&oacute;n est&aacute; dise&ntilde;ada para mantener errores y corregirlos.</p>
+  </li>
+</ul>
+
+<p>&nbsp;</p>
+
+<p style="text-align:center"><span style="color:#3498db"><span style="font-size:16px"><em><strong>Routing in AngularJS</strong></em></span></span></p>
+
+<p>&nbsp;</p>
+
+<p>$route es servicio que permite el manejo de vistas en angular, este servicio te deja controlar el enrutamiento de cada una de las vista en la misma aplicaci&oacute;n &ldquo;Single Page Application&rdquo;.</p>
+
+<p>Lo explicare en este ejemplo:</p>
+
+<p>Para la aplicaci&oacute;n [app], se le agrega su m&oacute;dulo ngRoute como dependencia.</p>
+
+<p><span style="color:#3498db"><strong>var app = angular.module(&quot;app&quot;, [&quot;ngRoute&quot;]);</strong></span></p>
+
+<p>De esta forma la aplicaci&oacute;n tiene acceso al<strong> $routeProvider</strong></p>
+
+<p><strong>app.config(function($routeProvider) {</strong></p>
+
+<p><strong>&nbsp;&nbsp;&nbsp;$routeProvider</strong></p>
+
+<p><strong>&nbsp;&nbsp;&nbsp;.when(&quot;/&quot;, {</strong></p>
+
+<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;templateUrl : &quot;views/main.htm&quot;,</strong></p>
+
+<p><strong>Controller: &quot;tu controlador&quot;</strong></p>
+
+<p><strong>//De esta forma se declara que el template de mi vista est&aacute; en el folder views en el &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;archivo main.html y que tiene su propio controlador que puede ser el mismo o diferente para cada view.</strong></p>
+
+<p><strong>&nbsp;&nbsp;&nbsp;.when(&quot;/red&quot;, {</strong></p>
+
+<p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;templateUrl : &quot;views/second.htm&quot;</strong></p>
+
+<p><strong>Controller: &quot;tu controlador&quot;</strong></p>
+
+<p><strong>&nbsp;&nbsp;&nbsp;})</strong></p>
+
+<p><strong>&nbsp;&nbsp;&nbsp;</strong></p>
+
+<p><strong>});</strong></p>
+
+<p>&nbsp;</p>
+
+<p>En el index.html es importante que se agregue en el inicio del los tags ya sea en el &lt;html&gt; o el body lo siguiente</p>
+
+<p><strong>&lt;body ng-app=&quot;myApp&quot;&gt;</strong></p>
+
+<p>Esto para &nbsp;que la aplicaci&oacute;n este conectada con el index.html. Por otra parte lo que permitir&aacute; router las vistas en base a su controlador es:</p>
+
+<p><strong>&lt;div ng-view&gt;&lt;/div&gt; </strong></p>
+
+<p>De esta forma cuando se quiera cambiar de vista simplemente podemos utilizar las funciones que incluye routeProvider &nbsp;</p>
+
+<p><strong>$location.path(&quot;/TuView&quot;); </strong></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:center"><em><span style="font-size:16px"><strong>Multiple Access keys AWS</strong></span></em></p>
+
+<p><strong>Se pueden generar otras access keys definiendo nuevos perfiles de aws con el comando</strong></p>
+
+<p><strong>Aws configure -profile [Username]</strong></p>
+
+<p><strong>De esta forma cada uno de los usuarios tendr&aacute; sus propias keys</strong></p>
+
+<p>&nbsp;</p>
+
+<p><strong>[user1]</strong></p>
+
+<p><strong>aws_acces_key = 8834JEWRHSK8934</strong></p>
+
+<p><strong>Aws_secret_acces_key = 8834JEWRHSK8934</strong></p>
+
+<p>&nbsp;</p>
+
+<p><strong>[user2]</strong></p>
+
+<p><strong>aws_acces_key = 8834JEWRHSK893</strong></p>
+
+<p><strong>Aws_secret_acces_key = 8834JEWRHSK8934</strong></p>
+
+<p><strong>Y simplemente se selecciona el perfil a utilizar.</strong></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p style="text-align:center"><br />
+<span style="color:#3498db"><em><span style="font-size:16px"><strong>Que hare para mejorar este semestre</strong></span></em></span><br />
+&nbsp;</p>
+
+<p>Lo que har&eacute; este semestre que no hice el pasado, principalmente darle prioridad a las cosas, hacer las tareas desde antes (Como est&aacute;), esforzarme mil veces lo que sol&iacute;a hacerlo, retarme a m&iacute; mismo, hacer las cosas al 100% no solo por la calificaci&oacute;n si no por mi aprendizaje. Estudiar el doble para los ex&aacute;menes, leer, pensar y razonar las cosas, no quedarme con dudas, confiar en mis capacidades, dejar la flojera a lado. Pensar que todo esto me ayudar&aacute; en el futuro.</p>
+
+<p>Think Big.</p>
+
+<p><br />
+<br />
+<br />
+&nbsp;</p>
+
+<p style="text-align:center"><span style="color:#3498db"><em><span style="font-size:16px"><strong>FILES</strong></span></em></span></p>
+
+<p><strong>ambiente.sh</strong></p>
+
+<p><span style="font-size:8px"><a style="font-size: 15px;color: blue;" href="https://www.dropbox.com/s/1lkdew1rwwyc6rh/ambiente.sh?dl=0"><p>https://www.dropbox.com/s/1lkdew1rwwyc6rh/ambiente.sh?dl=0</p></a></span></p>
+
+<p>&nbsp;</p>
+
+<p><strong>Deploy.sh</strong></p>
+
+<p><span style="font-size:8px"><a style="font-size: 15px;color: blue;" href="https://www.dropbox.com/s/3zc81ukknr4guqp/deploy.sh?dl=0"><p >https://www.dropbox.com/s/3zc81ukknr4guqp/deploy.sh?dl=0</p></a></span></p>
+
+<p><br />
+&nbsp;</p>
+
+              </div>
+            </div>
+           
+          </div>
+        </div>
+  
+</div>
+  
+  
+</div>
+
