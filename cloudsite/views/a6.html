@@ -1,0 +1,69 @@
+<div ng-controller="HomeCont">
+
+<div style="background-color: white; height: auto;padding-bottom:400px;">
+  <div class="parallax2">
+    <div>
+      <button style="float: left; " class="btn btn-primary create-crud" ng-click="goPanel()">Close</button>
+      <p class="headerPrev">Assignment 6</p>
+    </div>
+  </div>
+
+
+
+ <div class="container">
+ 	 <strong> <h4> <span style="color:red">1.</span>Read the AWS Well Architected Framework and make a summary about the 5 pillars<br>
+
+ 	 <h3 style="color: orange;">Security Pillar</h3>
+ 	 
+ 	 <p>Este pilar menciona la importancia de la seguridad dentro de los servicios cloud, habla sobre la importancia de utilizar  Identity and Access Management (IAM), en donde un adminsitrador puede asignar credenciales a los usuarios IAM, para darles permisos específicos. Se habla de la importancia de mantener segura la AWS Root account  mediante  two factor auth y una contraseña muy segura. 
+ 	 Es muy importante asignar solo los permisos necesarios para cada uno de los usuarios.
+ 	 <h4 style="color: blue;">Detective Controls</h4>
+ 	 <p>Detective controls provee captura que facilita el analisis de logs de incidentes de seguiridad, estos logs pueden ser almacenados para despues ser analizados por alguno de los servicios que ofrece aws. </p>
+ 	 </p>
+ 	 <h4 style="color: blue;">Infrastructure protection</h4>
+ 	 <p>En esta seccion se menciona acerca del manejo de firewalls y como se dividen en trusted zones y unstrusted zones, las cuales separan en security groups y  Access Control Lists para protejer las subnets de VPC. </p>
+
+ 	 <h3 style="color: orange;">Reliability Pillar</h3>
+ 	 <h4 style="color: blue;">Foundations</h4>
+ 	 <p>Es muy importante prevenir al usuario de utilizar mas recursos de los que requiere en realidad, es indispensable evaluar los servicios que require asi como almacenamiento y conocer sus limites. </p>
+
+ 	 <p>Dentro de ello es importante monitoriar la escalabilidad del sistema y estar listos para el cambio es decir, de ser necesario el mas uso de servicios, e incrementar apropiadamente </p>
+
+ 	 <p>Promueve el aprovechamiento de los servicios ya existentes como CloudWatch, Cloud Front, esto favorece el desarrollo de sistemas de automatica escalabilidad lo cual lo hace un sistema bastante eficiente. Algo indispensable es estar listo para el constante cambio y la importancia de estar listo para modificaciones de recursos. </p>
+
+ 	 <h4 style="color: blue;">Failure Management</h4>
+ 	 <p>Algo que se ha mencionado repetidamente en clase es la automatización de back ups asi como sistemas de recovery en caso de problemas del sistema.</p>
+
+
+ 	 <h3 style="color: orange;">Performance Pillar</h3>
+ 	  	 <h4 style="color: blue;">Selection</h4>
+
+
+ 	 <p>Es indispensable estudiar y comprender a fonodo lo que se quiere lograr antes de deployarlo para conocer nuestros limites y seleccionar la mejor arquitectura, es muy importante seleccionar la tecnologia que se adapte a las necesidades que se buscan lograr, para esto es importante hacer benchmark de diferentes tecnologias sobre el proyecto deseado para seleccionar la que se adapte al proyecto deseado. Es indispensable considerar cada aspecto que sea requerido para el desarrollo del proyecto, encontrando los mejores approaches, las caracteristicas base..etc.</p>
+
+
+<h3 style="color: orange;">Cost Optimization Pillar</h3>
+
+<p>En este pilar habla de la importancia y buena practica que es seleccionar los servicios correctos para refniar costos, es decir seleccionar solamente lo necesario para el negocio o proyecto. Como mencionan en el pilar anterior es necesario hacer benchmarks para definir el tamaño de recursos necesarios asi como utlizar los servicios correctos (Databases,lambdas, s3 etc.) utilizando metricas para cada uno de estos lo cual nos ayuda a aprovechar estos servicios al maximo y lograr el target esperado.</p>
+
+<h3 style="color: orange;">Operational Excellence Pillar</h3>
+
+<p>Es indispensable mantener un nivel de confianza para los clientes muy alto en nuesotro sistema, por eso es importante y un buena pratica realizar checklist de proteccion y seguirdad antes de operar. Para facilitar el desarrollo del sistema es necesario la documentacion de diagramas, instraestructura, procesos, tracking de resourses para identificar los servicios mas utilizados y proveer mejor servicios. Una insfraestructura inmutabla para re-deployar y no tener un sistema lleno de patches. La atumatizacion de procesos de cambio es un pactor muy importante para proveer un servicio de excelencia, ademas que nos ayuda a tener un sistema independiente que utiliza o no utiliza recursos segun el caso. Para lograr ofrecer los mejores servicios es importante mantener track de todo lo utilizado, asi como monitoreo de cada proceso de nuestro servicio, esto es facil en AWS con servicios ya incluidos como CloudWatch o se pueden utilizar thirdparty monitoring services.</p>
+
+
+
+<strong> <h4> <span style="color:red">1.</span>. Explain how you will apply the AWS Well Architecture Framework to your project. <br>
+
+ 	 <h3 style="color: orange;">Applying AWS Well Architected Framework </h3>
+
+
+	<p>Al aplicar AWS Well Architecture Framework en mi proyecto ayudara a desarrollar un sistema no solo bien estructurado pero listo para ser escalable y facil de mantener. Asi mismo, nos ayudara a repartir los permisos correctos si muchos usuarios estaran actuando en el sistema mediante herramientas IAM. Dentro del desarrollo de nuestro sistema utilizando herramientas de tracking y monitoreo se nos facilitara analizar en donde estan ocurriendo problemas dentro del sistema y se tendra una comunicación constante para examinar la forma en la que esta actuando nuestro sistema en base a ciertas condiciones. <br>Por otra parte al implementar este framework en nuestro proyecto, el sistema sera capaz de crecer automaticamente en base a sus requerimientos, es decir si es necesario mas almacenamiento porque muchos usuarios estan intentando guardar información, el sistema por si mismo sería capaz de actuar al respecto y no fallaría o se pondria lento. <br>Algo muy importante de el framework seria que el sistema manejaria alta seguridad, es decir, la información siempre tendra coherencia sin importar los cambios ya que se pueden generar sistemas de back-up automatico, por tiempo o dependiendo las condiciones asignadas.Al utilizar cluodwatch nos facilitaría  metricas y analisis de la informacion de recursos utilizados en nuestro sistema para  analizar las necesidades del sitema en determinado tiempo.
+
+
+
+
+
+	 </p>
+
+
+</div>

@@ -20,6 +20,14 @@ app.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'views/a3.html',
             controller: 'HomeCont'
         })
+        .when('/a6', {
+            templateUrl: 'views/a6.html',
+            controller: 'HomeCont'
+        })
+        .when('/a7', {
+            templateUrl: 'views/a7.html',
+            controller: 'HomeCont'
+        })
         .when('/marvel', {
             templateUrl: 'views/marvel.html',
             controller: 'HomeCont'
@@ -34,7 +42,7 @@ app.config(['$routeProvider', function($routeProvider) {
 
 }]);
 
-app.controller('HomeCont', ['$scope', '$location', function($scope, $location) {
+app.controller('HomeCont', ['$scope', '$location','$http', function($scope, $location,$http) {
 
     $scope.changeView = function(view) {
         $location.path(view);
@@ -44,122 +52,113 @@ app.controller('HomeCont', ['$scope', '$location', function($scope, $location) {
         $location.path('panel');
     }
 
-var characters = {},
-            comicsurl = 'https://g4ieh9s5gj.execute-api.us-east-1.amazonaws.com/dev/getcomics',
-            seriesurl = 'https://g4ieh9s5gj.execute-api.us-east-1.amazonaws.com/dev/getseries',
-            hash = "446be722b9109755972fdbc2b3ef7347",
-            key1, key2,
-            commonComics = {},
-            commonSeries = {},
-            index, offset,
-            publickey = "095d6be999292153ea16d6c5daffdd5c",
-            privatekey = "789965208c1e1b63d4910dc3d0721f63cf7014f0",
-            superList = {};
-
-
-
-        for (index = 0; index < 15; index++) {
-            offset = (index * 100);
-            var marvelUrl1 = "https://gateway.marvel.com:443/v1/public/characters?ts=1&apikey=" + publickey + "&hash=" + hash + "&limit=100&offset=" + offset;
-            fetch(marvelUrl1, {
-                method: 'GET',
-                headers: {
-                    Accept: 'application/json',
-                },
-            }).then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (defs) {
-                        var info = defs.data.results;
-                        Object.keys(info).forEach(function eachKey(key) {
-                            var name = info[key].name,
-                                id = info[key].id;
-                            characters[name] = id;
-                            $("#chracterList1").append("<option value='" + name + "'>" + name + "</option>");
-                            $("#chracterList2").append("<option value='" + name + "'>" + name + "</option>");
-                        });
-                    });
-                }
-            });
-        };
-
-        function getComics(id1, id2) {
-            fetch(comicsurl, {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json'
-                },
-                body: '{\n\t"description":"Sending IDs",\n\t"IDs":[' + id1 + ',' + id2 + ']\n}'
-            }).then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (comics) {
-                        $scope.commonComics = comics; // work with this
-                        commonComics = comics;
-                    });
-                };
-            });
-
-        };
-
-        function getSeries(id1, id2) {
-            fetch(seriesurl, {
-                method: 'POST',
-                headers: {
-                    Accept: 'application/json'
-                },
-                body: '{\n\t"description":"Sending IDs",\n\t"IDs":[' + id1 + ',' + id2 + ']\n}'
-            }).then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (series) {
-                        $scope.commonSeries = series; 
-                        commonSeries = series;
-                    });
-                };
-            });
-
-        };
-
-        function poblar() {
-            for (var ite = 0; ite < commonComics.length; ite++) {
-                var obj = commonComics[ite];
-                $("#res1").append("<li>" + obj + "</li>");
-            }
-            for (var ite = 0; ite < commonSeries.length; ite++) {
-                var obj = commonSeries[ite];
-                $("#res2").append("<li>" + obj + "</li>");
-            }
-        };
-
-        function inter(selected1, selected2) {
-            $("#res1").remove();
-            $("#res2").remove();
-            $("#res").append("<ul id='res1' class='selector'><p><b>•In the same comic:</b></p></ul>");
-            $("#res").append("<ul id='res2'  class='selector'><p><b>•In the same series:</b></p></ul>");
-            key1 = characters[selected1];
-            key2 = characters[selected2];
-            getComics(key1, key2);
-            getSeries(key1, key2);
-            setTimeout(function () {
-                $("#loading").remove();
-                $("#time").remove();
-                poblar();
-                var date2 = Date.now()
-                var totaldate = date2 - date2;
-                $("#time").append(totaldate);
-            }, 8000);
-        };
-
-        $("#getiComics").click(function () {
-            var selected1 = $('#chracterList1').find(":selected").text();
-            var selected2 = $('#chracterList2').find(":selected").text();
-            if (selected2 != selected1) {
-                var date1 = Date.now();
-                inter(selected1, selected2);
-            } else {
-                alert("You selected the same, try different");
-            }
-        });
-
     
+    var comicsurl = 'https://l3gmoaddyd.execute-api.us-east-1.amazonaws.com/prod/rodo/getcomics';
+    var seriesurl = 'https://l3gmoaddyd.execute-api.us-east-1.amazonaws.com/prod/rodo/getseries';
+    $scope.names = [];
+    var limit = 100;
+    var offset = 0;
+    var characters = new Map();
+    var timeStamp = 1;
+    var privateKey = '789965208c1e1b63d4910dc3d0721f63cf7014f0';
+    var publicKey = '095d6be999292153ea16d6c5daffdd5c';
+    var hash = '446be722b9109755972fdbc2b3ef7347';
+    var exit = false;
+    while (offset <= limit * 14) {
+         var url = "https://gateway.marvel.com:443/v1/public/characters?ts=" + timeStamp + "&apikey=" + publicKey + "&hash=" + hash + "&limit=" + limit + "&offset=" + offset;
+         $http.get(url)
+             .then(function (response) {
+                 var info = response.data;
+                 var results = info.data.results;
+                 for (var i = 0; i < results.length; i++) {
+                     $scope.names.push(results[i].name);
+                     characters.set(results[i].name, results[i].id);
+                 }
+             })
+             .catch(function (data) {
+                 console.log('An error has occurred. ' + data);
+                 exit = true
+             });
+         if (exit) { break; }
+         offset += 100;
+    }
+
+    $scope.execute = function () {
+        $scope.ComicTime ='Loading comics';
+        $scope.SerieTime ='Loading series';
+        $scope.comics = [];
+        $scope.series = [];
+        console.log('aqui si');
+        if ($scope.selectedName != null && $scope.selectedName2 != null) {
+            var id1 = characters.get($scope.selectedName);
+            var id2 = characters.get($scope.selectedName2);
+            console.log('id1: ' + id1);
+            console.log('id2: ' + id2);
+             console.log('aqui si if');
+
+      
+
+
+            var reqComics = {
+                method: 'PUT',
+                url: 'https://l3gmoaddyd.execute-api.us-east-1.amazonaws.com/prod/rodo/getcomics',
+                data: { "id1": id1, "id2": id2 }
+            }
+
+            var startComics = new Date();
+            $http(reqComics)
+                .then(function (response) {
+                     console.log(response);
+                    var info = response.data;
+                    console.log(info);
+                    var endComics = new Date();
+                    var seconds = (endComics.getTime() - startComics.getTime()) / 1000;
+                    console.log(info[0] +" estos sons los comis");
+                    $scope.comics = getCommon(info[0], info[1]);
+                    console.log($scope.comics + 'AQUIIUUIIUIUIUIU comics')
+                        $scope.ComicTime = 'Comics(' + seconds + ' s)';
+                
+                })
+                .catch(function (data) {
+                    console.log('An error has occurred. ' + data);
+                });
+
+            var reqSeries = {
+                method: 'PUT',
+                url: 'https://l3gmoaddyd.execute-api.us-east-1.amazonaws.com/prod/rodo/getseries',
+                data: { "id1": id1, "id2": id2 }
+            }
+
+            var startSeries = new Date();
+            $http(reqSeries)
+                .then(function (response) {
+                    var info = response.data;
+                    var endSeries = new Date();
+                    var seconds = (endSeries.getTime() - startSeries.getTime()) / 1000;
+                    $scope.series = getCommon(info[0], info[1]);
+                    console.log($scope.series + 'AQUIIUUIIUIUIUIU series')
+                        $scope.SerieTime = 'Series (' + seconds + ' s)';
+                   
+                })
+                .catch(function (data) {
+                    console.log('An error has occurred. ' + data);
+                });
+
+        }
+    };
+
+      var getCommon = function (object1, object2) {
+          var set = new Set();
+          for (var i = 0; i < object2.length; i++) {
+              if (object1.includes(object2[i])) {
+                  set.add(object2[i]);
+              }
+          }
+           console.log(set +'esto es set bleh')
+          return Array.from(set);
+          console.log(set +'esto es set bleh')
+      };
+       
 
 
 

@@ -1,4 +1,4 @@
-<div ng-controller="HomeCont">
+<div >
 
 <div style="background-color: white; height: auto; padding-bottom: 400px;">
   <div class="parallax2">
@@ -16,48 +16,72 @@
 <div class="container">
   <h2>Get list of Marvel Characters</h2>
   <div class="panel panel-default">
-    <div class="panel-heading" style="background-color: lightblue;">Select Characters</div>
+    <div class="panel-heading" style="background-color: lightblue;"><h2>Select Characters</h2><p>(Intenta con spiderman y hulk para traer desde JSON)</p></div>
     <div class="panel-body">
+      <h2></h2>
     	
 	   <div style="float:left; width: 50%">
 	   		<h4>First selection</h3>
-			<select class="form-control" style="background-color: orange;color: black;font-weight: 700;font-size: 22px;" id="chracterList1" selected="1" >
-			</select>
+			<select class="form-control" style="background-color: orange;color: black;font-weight: 700;font-size: 18px;" ng-model="selectedName" ng-options="x for x in names | orderBy">
+        <option value="" selected disabled hidden>Select Spider-Man (For test)</option>
+        </select></p>
 	   </div>
 	   <div style="float:left; width: 50%">
 	   		<h4>Second selection</h3>
-			<select class="form-control" style="background-color: orange;color: black;font-weight: 700;font-size: 22px;"  id="chracterList2"  >
-			</select>
+			  <select  style="background-color: orange;color: black;font-weight: 700;font-size: 18px;" class="form-control" value='1' ng-model="selectedName2" ng-options="x for x in names| orderBy">
+          <option value="" selected disabled hidden>Select Hulk (For test)</option>
+        </select></p>
 	   </div>
 	   <div style="clear: both;"></div>
 
      <div style="text-align: center;"> 
        <div style="display: inline-block;">
-         <button class="btn btn-default" style="margin-top: 30px;" id="getiComics">Get Comics</button>
+         <button class="btn btn-danger" style="margin-top: 30px;" ng-click="execute()">COMICS / SERIES</button>
        </div>
      </div>
-
-     
   </div>
+
 
   
 <div class="panel panel-default">
     <div class="panel-heading" style="background-color: lightblue;"><h2>Comics and series that match both characters</h2></div>
     <div class="panel-body">
-      <div id="res">
-          <ul id="res1" class="selector"></ul>
-
-          <ul id="res2" class="selector"></ul>
+      <div class="row">
+        <div class="col-md-6" style="text-align:left;">
+            <p style="color:red;"><b>{{ComicTime}}</b></p>
+            <div ng-repeat="comic in comics track by $index" style="text-align: left;font-weight: 700;font-size: 15px;">{{comic}}</div>
+        </div>
+        <div class="col-md-6" style="text-align:left;">
+            <p style="color:red;"><b>{{SerieTime}}</b></p>
+            <div ng-repeat="s in series track by $index" style="text-align: left;font-weight: 700;font-size: 15px;">{{s}}</div>
+        </div>
       </div>
+    
+
+
   </div>
 </div>
+<div class="panel panel-default">
+    <div class="panel-heading" style="background-color: lightblue;"><h4>Modify your Marvel Lambda Application to:
+  Store results in S3.<br>Get results from S3 when the same parameters are passed instead of calling Marvel API.</h4></div>
 
+
+    <div class="panel-body">
+      <p>Bucket name: <strong>rodo-results</strong></p>
+      <p>Github link:</p>
+      <p>Json Example "1009351_1009610_comics.json"</p>
+      <pre>
+        [["Avengers (1998 - 2004)","Avengers Vol. 1: World Trust (2003)","Earth X (1999)","Earth X (New (2006)","Hulk (2008 - 2012)","Hulk Vol. 1: Red Hulk (2009 - Present)","Hulk: Destruction (2005)","Incredible Hulk (1962 - 1999)","Incredible Hulk (1999 - 2008)","Incredible Hulk Annual (1968 - 1994)","Incredible Hulk Vol. 4: Abominable (2003)","Incredible Hulk Vol. IV: Abominable (2003)","Incredible Hulks (2009 - 2011)","Iron Man (1998 - 2004)","Irredeemable Ant-Man (2006 - 2007)","Irredeemable Ant-Man Vol. 1: Low-Life (2007)","Killraven (2002 - 2003)","Killraven Premiere (2007)","Marvel Cinematic Universe Guidebook: The Avengers Initiative (2017)","Marvel Masterworks: The Incredible Hulk Vol.3 (2006)","Marvel Super-Heroes (1992 - 1993)","Marvel Visionaries: John Romita Jr. (2005)","Tales to Astonish (1959 - 1968)","Uncanny X-Men (1963 - 2011)","X-Men (1991 - 2001)"],["Classic X-Men (1986 - 1990)","House of M: Uncanny X-Men (2006)","Uncanny X-Men (1963 - 2011)","Uncanny X-Men Omnibus Vol. 1 (2006)","X-Force (1991 - 2004)","X-Force: Force to Be Reckoned with (2011)"]]
+      </pre>
+  </div>
+</div>
 
 <div class="panel panel-default">
-    <div class="panel-heading" style="background-color: lightblue;">Authorizer (Try)</div>
+    <div class="panel-heading" style="background-color: lightblue;"><h2>Authorizer (Try)</h2></div>
     <div class="panel-body">
+
       Es mi intento
-      <a href=""></a>
+      <a href="https://github.com/rodorodo5/CloudAssignments/tree/master/Authorizer">Link to repo</a>
   </div>
 </div>
 
@@ -66,8 +90,10 @@
 
 
 
-</div>
 
+
+</div>
+<p>Team with Sam, Mike, Emilio</p>
 
 
 

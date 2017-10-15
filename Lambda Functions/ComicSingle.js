@@ -1,53 +1,45 @@
 'use strict'
 
-var crypto = require('crypto-js'),
-    http = require('http'),
-    format = require('string_format'),
-    async = require("async"),
-    AWS = require('aws-sdk'),
-    lambda = new AWS.Lambda('"region":"us-east-1"'),
-    puKey = '095d6be999292153ea16d6c5daffdd5c',
-    prKey = '789965208c1e1b63d4910dc3d0721f63cf7014f0',
-    ts = new Date().getTime(),
-    hash = crypto.MD5(ts + prKey + puKey).toString(),
-    templateurl = 'http://gateway.marvel.com/v1/public/characters/{0}/comics?limit=100&ts={1}&apikey={2}&hash={3}&offset={4}';
+var async = require("async");
+var AWS = require("aws-sdk");
+var http = require("https");
+var lambda = new AWS.Lambda({"region": "us-east-1"});
+var crypto = require('crypto-js');
+var format = require("string_format");
+
+var privateKey = '789965208c1e1b63d4910dc3d0721f63cf7014f0';
+var publicKey = '095d6be999292153ea16d6c5daffdd5c';
+var ts = new Date().getTime();
+var hash = crypto.MD5(ts + privateKey + publicKey).toString();
+var comicsUrl = "https://gateway.marvel.com:443/v1/public/characters/{0}/comics?limit=100&ts={1}&apikey={2}&hash={3}&offset=[4]"; 
 
 module.exports.get = (event, context, callback) => {
-    var charId = event.characterId,
-        offset = event.offset,
-        url = templateurl.format(charId, ts, puKey, hash, offset),
-        comicsNames = [],
-        tasks = [];
-    tasks.push(function (callback) {
-        http.get(url, (res) => {
-            res.setEncoding('utf8');
-            var totalData = "";
+    console.log(event);
+    var url = comicsUrl.format(event.charId, ts, publicKey, hash, event.offset);
+    getCharacterComics(url, callback);
+}
 
-            res.on("data", (data) => {
-                totalData += data;
-            });
+var getCharacterComics = function(url, callback) {
+    var comicTotal;
+    var errorMessage = "Data not found.";
+    http.get(url, (res) => {
+        res.setEncoding('utf8');
+        var totalData = "";
 
-            res.on("end", (data) => {
-                var comics = JSON.parse(totalData);
-                var results = comics.data.results;
-                var title;
-                for (let j = 0; j < 100; j++) {
-                    try {
-                        title = results[j].title;
-                        comicsNames = comicsNames.concat(title);
-                    } catch (err) {
-                        j = 100;
-                    }
-                }
-                callback(null, comicsNames);
-            })
-        })
+        res.on("data", (data) => {
+            totalData += data;
+        });
+        res.on("end", (data) => {
+            var comics = JSON.parse(totalData);
+            if (comics["data"]) {
+                comicTotal = comics["data"]["results"].map(function(event) {
+                    return event.title;
+                });
+                callback(null, comicTotal);
+            }
+            else {
+                callback(errorMessage, null);
+            }
+        });
     })
-    async.parallel(tasks, function (error, data) {
-        if (error) {
-            callback(error, null);
-        } else {
-            callback(null, comicsNames);
-        }
-    });
 }
