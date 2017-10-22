@@ -1,0 +1,81 @@
+service: rodo-new
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  role: arn:aws:iam::292274580527:role/cc116_lambda
+
+functions:
+  getCharacters:
+    handler: getMCharacters.get
+    events:
+      - http:
+          path: /characters
+          method: get
+          integration: lambda
+
+  marvelcharacters:
+    handler: marvelcharacters.get
+    memorySize: 128
+    timeout: 20
+  ComicManager:
+    handler: ComicManager.get
+    memorySize: 128
+    timeout: 20
+    events: 
+      - http:
+          path: /getcomics
+          method: post
+          integration: lambda
+  ComicSingle:
+    handler: ComicSingle.get
+    timeout: 20
+  SerieManager:
+    handler: SerieManager.get
+    memorySize: 128
+    timeout: 20
+    events: 
+      - http:
+          path: /getseries
+          method: post
+  SerieSingle:
+    handler: SerieSingle.get
+    timeout: 20
+  getVersion:
+    handler: getVersion.get
+    timeout: 20
+resources:
+  Resources: 
+    NewResource:
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: Id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: Id
+            KeyType: HASH
+        TableName: rodoTable
+        ProvisionedThroughput:
+            ReadCapacityUnits: 5
+            WriteCapacityUnits: 2
+
+
+#you can add CloudFormation resource templates here
+
+# resources:
+#  Resources:
+#    rodobucket:
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: rodobucket
+#        AccessControl: PublicRead
+#        VersioningConfiguration:
+#         Status: Enabled
+
+
+
+
+
+
+
